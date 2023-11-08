@@ -12,7 +12,7 @@ const anggotaController = {
       const page = Number(req.query.page) || 1;
       const limit = Number(req.query.limit) || 10;
       const offset = (page - 1) * limit;
-      const sortby = req.query.sortby || "id";
+      const sortby = req.query.sortby || "id_anggota";
       const sort = req.query.sort || "ASC";
       const result = await selectAll({ limit, offset, sort, sortby, keyword });
       const {
@@ -78,6 +78,7 @@ const anggotaController = {
       rows: [count],
     } = await countData();
     const id_anggota = Number(count.count) + 1;
+
     const PORT = process.env.PORT || 4000;
     const DB_HOST = process.env.DB_HOST || "localhost";
 
@@ -100,6 +101,7 @@ const anggotaController = {
       const PORT = process.env.PORT || 4000;
       const DB_HOST = process.env.DB_HOST || "localhost";
       const id = Number(req.params.id);
+      y;
       const result = await cloudinary.uploader.upload(req.file.path);
       const photo = result.secure_url;
       // const cloudinary_id = result.public_id;
