@@ -1,6 +1,6 @@
 const Pool = require("../config/db");
 const selectAll = ({ limit, offset, sort, sortby, keyword }) => {
-  return Pool.query(`SELECT * FROM pengarang where 	id_pengarang ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
+  return Pool.query(`SELECT * FROM pengarang where 	nama ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
 };
 
 const selectSearchpengarang = ({ keyword, sort }) => {
