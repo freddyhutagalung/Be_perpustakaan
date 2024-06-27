@@ -1,10 +1,10 @@
 const Pool = require("../config/db");
 const selectAll = ({ limit, offset, sort, sortby, keyword }) => {
-  return Pool.query(`SELECT * FROM peminjaman where 	tanggal_kembali ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
+  return Pool.query(`SELECT * FROM peminjaman where 	nama ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
 };
 
 const selectSearchpeminjaman = ({ keyword, sort }) => {
-  return Pool.query(`SELECT * FROM peminjaman  where 	tanggal_kembali ilike '%${keyword}%'`);
+  return Pool.query(`SELECT * FROM peminjaman  where 	nama ilike '%${keyword}%'`);
 };
 
 const select = (id_peminjaman) => {

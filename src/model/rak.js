@@ -1,10 +1,10 @@
 const Pool = require("../config/db");
 const selectAll = ({ limit, offset, sort, sortby, keyword }) => {
-  return Pool.query(`SELECT * FROM rak where 	kode_rak ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
+  return Pool.query(`SELECT * FROM rak where 	lokasi ilike '%${keyword}%' ORDER BY ${sortby} ${sort} LIMIT ${limit} OFFSET ${offset}`);
 };
 
 const selectSearchrak = ({ keyword, sort }) => {
-  return Pool.query(`SELECT * FROM rak  where 	kode_rak ilike '%${keyword}%'`);
+  return Pool.query(`SELECT * FROM rak  where 	lokasi ilike '%${keyword}%'`);
 };
 
 const select = (kode_rak) => {
